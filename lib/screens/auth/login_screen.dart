@@ -1,3 +1,4 @@
+import 'package:asad_project/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -24,6 +25,16 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Stack(
         children: [
           // Background Putih dengan Rounded Top
+          const Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: Image(
+              image: AssetImage("assets/images/image_login.png"),
+              fit: BoxFit.cover,
+              height: 194, // atur tinggi sesuai desain
+            ),
+          ),
           Positioned(
             left: 0,
             top: 194,
@@ -41,15 +52,13 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
 
           // Logo
-          const Positioned(
+          Positioned(
             top: 257,
             left: 160,
             child: SizedBox(
               width: 70,
               height: 70,
-              child: CircleAvatar(
-                backgroundImage: NetworkImage("https://placehold.co/70x70"),
-              ),
+              child: Image.asset("./assets/images/image_logo.png"),
             ),
           ),
 
@@ -170,6 +179,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 onPressed: () {
                   debugPrint("Email: ${_emailController.text}");
                   debugPrint("Password: ${_passwordController.text}");
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomeScreen()),
+                  );
                 },
                 child: const Text(
                   'Masuk',
