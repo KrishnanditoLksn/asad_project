@@ -1,4 +1,5 @@
 import 'package:asad_project/data/model/bank_pilihan.dart';
+import 'package:asad_project/screens/setor_tabungan/setor_tabungan_pilihan.dart';
 import 'package:asad_project/utils/dummy_data.dart';
 import 'package:flutter/material.dart';
 
@@ -90,7 +91,17 @@ class SetorTabunganScreen extends StatelessWidget {
                 ),
                 trailing: IconButton(
                   icon: Icon(Icons.chevron_right),
-                  onPressed: () => {},
+                  onPressed:
+                      () => {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder:
+                                (context) =>
+                                    SetorTabunganPilihan(bank[index].namaBank!),
+                          ),
+                        ),
+                      },
                 ),
               );
             },
