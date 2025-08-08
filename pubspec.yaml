@@ -14,6 +14,31 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+  
+
 
 flutter:
   uses-material-design: true
+
+  assets: 
+    - ./assets/images/image_logo.png
+    - ./assets/images/image_login.png
+    - ./assets/images/home.png
+    - ./assets/images/profil.png
+    - ./assets/images/tabungan.png
+    - ./assets/images/profile_full.png
+    - ./assets/images/home_full.png
+    - ./assets/images/tabungan_full.png
+    - ./assets/images/vector.png
+    - ./assets/images/lokasi.png
+    - ./assets/images/pesantren.png
+    - ./assets/images/berita1.png
+    - ./assets/images/berita2.png
+    - ./assets/images/berita3.png
+    
+
+
+  fonts:
+    - family: Maison Neue
+      fonts:
+      - asset: ./assets/fonts/Maison Neue.ttf
