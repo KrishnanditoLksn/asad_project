@@ -48,7 +48,7 @@ class DetailTransaksi extends StatelessWidget {
           Container(
             margin: EdgeInsets.only(top: 20),
             width: 350,
-            height: 481,
+            height: jenisTransaksi != "Penarikan" ? 481 : 358,
             decoration: ShapeDecoration(
               color: Colors.white,
               shape: RoundedRectangleBorder(
@@ -287,6 +287,44 @@ class DetailTransaksi extends StatelessWidget {
             ),
           ),
 
+          //TUJUAN PENARIKAN
+          if (jenisTransaksi == "Penarikan")
+            Container(
+              margin: EdgeInsets.only(top: 10, bottom: 10, right: 3, left: 3),
+              width: 350,
+              height: 64,
+              decoration: ShapeDecoration(
+                color: Colors.white,
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(width: 1, color: const Color(0xFFDDDDDD)),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Tujuan penarikan',
+                    style: TextStyle(
+                      color: const Color(0xFF656565),
+                      fontSize: 14,
+                      fontFamily: 'Maison Neue',
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  Text(
+                    'Biaya asrama',
+                    textAlign: TextAlign.right,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14,
+                      fontFamily: 'Maison Neue',
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           //LIHAT BUKTI SETOR
           Container(
             margin: EdgeInsets.only(bottom: 25, left: 5, right: 1),
