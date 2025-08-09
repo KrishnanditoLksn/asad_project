@@ -1,5 +1,6 @@
 import 'package:asad_project/data/model/berita.dart';
 import 'package:asad_project/data/model/history_transaksi.dart';
+import 'package:asad_project/screens/detail_transaksi/detail_transaksi.dart';
 import 'package:asad_project/screens/setor_tabungan/setor_tabungan_screen.dart';
 import 'package:asad_project/utils/dummy_data.dart';
 import 'package:flutter/material.dart';
@@ -208,6 +209,17 @@ class TabunganScreen extends StatelessWidget {
                 ),
             itemBuilder: (context, index) {
               return ListTile(
+                onTap:
+                    () => {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder:
+                              (context) =>
+                                  DetailTransaksi(history[index].jenis!),
+                        ),
+                      ),
+                    },
                 title: Text(
                   history[index].jenis!,
                   style: const TextStyle(
