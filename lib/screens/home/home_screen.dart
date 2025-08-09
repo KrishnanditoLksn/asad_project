@@ -1,4 +1,5 @@
 import 'package:asad_project/data/model/berita.dart';
+import 'package:asad_project/screens/detail_transaksi/detail_transaksi.dart';
 import 'package:asad_project/utils/dummy_data.dart';
 import 'package:flutter/material.dart';
 
@@ -129,6 +130,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ],
                       ),
+
                       Row(
                         children: const [
                           Text(
@@ -215,7 +217,7 @@ class HomeScreen extends StatelessWidget {
                   dummyNews[index].title!,
                   style: TextStyle(
                     fontFamily: "Maison Neue",
-                    fontSize: 13,
+                    fontSize: 14,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -224,7 +226,7 @@ class HomeScreen extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 12,
                     fontFamily: "Maison Neue",
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
               );

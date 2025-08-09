@@ -1,4 +1,4 @@
-import 'package:asad_project/screens/home/home_screen.dart';
+import 'package:asad_project/screens/navigation/root_navigation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -181,7 +181,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   debugPrint("Password: ${_passwordController.text}");
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()),
+                    MaterialPageRoute(builder: (context) => RootNavigation()),
                   );
                 },
                 child: const Text(
