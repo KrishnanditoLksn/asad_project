@@ -1,3 +1,4 @@
+import 'package:asad_project/screens/setor_tabungan/bukti_setor_screen.dart';
 import 'package:flutter/material.dart';
 
 class SetorTabunganPilihan extends StatelessWidget {
@@ -382,7 +383,12 @@ class SetorTabunganPilihan extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    // Aksi keluar
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BuktiSetorScreen(),
+                      ),
+                    );
                   },
                   child: const Text(
                     'Saya Sudah Transfer',
