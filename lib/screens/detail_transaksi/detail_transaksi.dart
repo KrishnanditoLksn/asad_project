@@ -145,24 +145,28 @@ class DetailTransaksi extends StatelessWidget {
                               fontWeight: FontWeight.w400,
                             ),
                           ),
-                          Text(
-                            'Detail Penerima',
-                            style: TextStyle(
-                              color: const Color(0xFF656565),
-                              fontSize: 14,
-                              fontFamily: 'Maison Neue',
-                              fontWeight: FontWeight.w400,
+
+                          if (jenisTransaksi != "Penarikan")
+                            Text(
+                              "Detail Penerima",
+                              style: TextStyle(
+                                color: Color(0xFF656565),
+                                fontSize: 14,
+                                fontFamily: 'Maison Neue',
+                                fontWeight: FontWeight.w400,
+                              ),
                             ),
-                          ),
-                          Text(
-                            'Pesan (opsional)',
-                            style: TextStyle(
-                              color: const Color(0xFF656565),
-                              fontSize: 14,
-                              fontFamily: 'Maison Neue',
-                              fontWeight: FontWeight.w400,
+
+                          if (jenisTransaksi != "Penarikan")
+                            Text(
+                              'Pesan (opsional)',
+                              style: TextStyle(
+                                color: const Color(0xFF656565),
+                                fontSize: 14,
+                                fontFamily: 'Maison Neue',
+                                fontWeight: FontWeight.w400,
+                              ),
                             ),
-                          ),
                         ],
                       ),
                     ),
@@ -205,7 +209,10 @@ class DetailTransaksi extends StatelessWidget {
                               vertical: 4,
                             ),
                             decoration: ShapeDecoration(
-                              color: const Color(0xFFEBE9E9),
+                              color:
+                                  jenisTransaksi == "Penarikan"
+                                      ? Color(0xFFCED0FA)
+                                      : Color(0xFFEBE9E9),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(32),
                               ),
@@ -220,7 +227,7 @@ class DetailTransaksi extends StatelessWidget {
                                   'Berhasil',
                                   textAlign: TextAlign.right,
                                   style: TextStyle(
-                                    color: const Color(0xFF004A24),
+                                    color: Color(0xFF004A24),
                                     fontSize: 14,
                                     fontFamily: 'Maison Neue',
                                     fontWeight: FontWeight.w500,
@@ -231,43 +238,46 @@ class DetailTransaksi extends StatelessWidget {
                           ),
 
                           //DETAIL PENERIMA
-                          Text.rich(
-                            TextSpan(
-                              children: [
-                                TextSpan(
-                                  text: ' PESANTREN\n',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 14,
-                                    fontFamily: 'Maison Neue',
-                                    fontWeight: FontWeight.w500,
+                          if (jenisTransaksi != "Penarikan")
+                            Text.rich(
+                              TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: ' PESANTREN\n',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 14,
+                                      fontFamily: 'Maison Neue',
+                                      fontWeight: FontWeight.w500,
+                                    ),
                                   ),
-                                ),
-                                TextSpan(
-                                  text: '098123486759020',
-                                  style: TextStyle(
-                                    color: const Color(0xFFA4A4A4),
-                                    fontSize: 14,
-                                    fontFamily: 'Maison Neue',
-                                    fontWeight: FontWeight.w500,
+                                  TextSpan(
+                                    text: '098123486759020',
+                                    style: TextStyle(
+                                      color: const Color(0xFFA4A4A4),
+                                      fontSize: 14,
+                                      fontFamily: 'Maison Neue',
+                                      fontWeight: FontWeight.w500,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                                // ],
+                              ),
+                              textAlign: TextAlign.right,
                             ),
-                            textAlign: TextAlign.right,
-                          ),
 
                           //PESAN OPTIONAL
-                          Text(
-                            'Pembayaran sewa asrama',
-                            textAlign: TextAlign.right,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontFamily: 'Maison Neue',
-                              fontWeight: FontWeight.w500,
+                          if (jenisTransaksi != "Penarikan")
+                            Text(
+                              'Pembayaran sewa asrama',
+                              textAlign: TextAlign.right,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 14,
+                                fontFamily: 'Maison Neue',
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
-                          ),
                         ],
                       ),
                     ),
@@ -290,8 +300,11 @@ class DetailTransaksi extends StatelessWidget {
                       borderRadius: BorderRadius.circular(4),
                     ),
                   ),
-                  onPressed: () {
-                    // Aksi keluar
+                  onPressed: () async {
+                    await showDialog(
+                      context: context,
+                      builder: (_) => ImageDialog(),
+                    );
                   },
                   child: const Text(
                     'Lihat Bukti Setor',
@@ -307,6 +320,26 @@ class DetailTransaksi extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class ImageDialog extends StatelessWidget {
+  const ImageDialog({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      child: Container(
+        width: 348,
+        height: 585,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: ExactAssetImage('./assets/images/brisetor.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
       ),
     );
   }
