@@ -215,8 +215,11 @@ class TabunganScreen extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder:
-                              (context) =>
-                                  DetailTransaksi(history[index].jenis!),
+                              (context) => DetailTransaksi(
+                                history[index].tanggal,
+                                history[index].pengeluaran!,
+                                history[index].jenis!,
+                              ),
                         ),
                       ),
                     },
